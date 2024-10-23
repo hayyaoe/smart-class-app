@@ -43,20 +43,20 @@
     </main>
 
    <!-- Bottom Navigation Bar -->
-<nav class="bg-white text-gray-600 shadow-t-lg py-3 flex justify-around items-center fixed bottom-0 inset-x-0">
-    <a href="{{ url('/') }}" class="flex flex-col items-center hover:text-blue-500 transition duration-200">
+   <nav class="bg-white text-gray-600 shadow-t-lg py-3 flex justify-around items-center fixed bottom-0 inset-x-0">
+    <a href="/" class="flex flex-col items-center hover:text-blue-500 transition duration-200">
         <i class="fas fa-home text-2xl"></i>
         <span class="text-xs font-medium">Home</span>
     </a>
-    <a href="{{ url('/transcript_view') }}" class="flex flex-col items-center hover:text-blue-500 transition duration-200">
+    <a href='/transcript_view' class="flex flex-col items-center hover:text-blue-500 transition duration-200">
         <i class="fas fa-book text-2xl"></i>
         <span class="text-xs font-medium">Notes</span>
     </a>
-    <a href="{{ url('/vc_view') }}" class="flex flex-col items-center hover:text-blue-500 transition duration-200">
+    <a href='/vc_view' class="flex flex-col items-center hover:text-blue-500 transition duration-200">
         <i class="fas fa-microphone-alt text-2xl"></i>
         <span class="text-xs font-medium">Record</span>
     </a>
-    <a href="#" class="flex flex-col items-center hover:text-blue-500 transition duration-200">
+    <a href='/setting_view' class="flex flex-col items-center hover:text-blue-500 transition duration-200">
         <i class="fas fa-cog text-2xl"></i>
         <span class="text-xs font-medium">Settings</span>
     </a>
