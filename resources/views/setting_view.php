@@ -6,16 +6,43 @@
     <title>SmartClass Settings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Import Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+        .blue-bg{
+            background-color: #1152FD;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 text-center shadow-md">
-        <h1 class="text-2xl font-extrabold tracking-wide">Settings</h1>
+    <!-- Header -->
+    <header class="text-white text-center relative">
+        <div class="blue-bg pt-12 pb-12 shadow-md rounded-b-3xl fixed top-0 left-0 w-full z-10"> <!-- Changed 'relative' to 'fixed' -->
+            <h1 class="text-4xl font-extrabold tracking-wide">smartclass</h1>
+        </div>
+        
+        <!-- Transcript Button -->
+        <div class="fixed top-20 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-80 z-50">
+            <div class="bg-white text-blue-600 font-semibold text-lg px-6 py-3 rounded-full shadow-lg w-full">
+                <h2 class="text-xl font-semibold"> Settings </h2>
+            </div>
+        </div>
     </header>
 
     <!-- Settings Section -->
-    <main class="flex-grow flex flex-col items-center py-6">
+    <main class="flex-grow flex flex-col items-center mt-28 py-6">
         <div class="bg-white w-11/12 max-w-lg rounded-2xl shadow-lg p-6">
             <h2 class="text-xl font-bold mb-4">Profile Settings</h2>
             <div class="mb-4">

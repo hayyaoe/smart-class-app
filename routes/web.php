@@ -14,6 +14,10 @@ Route::get('/vc_view', function () {
     return view('vc_view');
 });
 
+Route::get('/summary_view', function(){
+    return view('summary_view');
+});
+
 Route::get('/setting_view', function () {
     return view('setting_view');
 });
