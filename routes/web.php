@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AudioController;
 
 Route::get('/', function () {
     return view('home_view');
@@ -18,3 +19,4 @@ Route::get('/setting_view', function () {
     return view('setting_view');
 });
 
+Route::post('/upload-audio', [AudioController::class, 'uploadAudio']);
