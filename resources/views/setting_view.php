@@ -15,7 +15,7 @@
     </header>
 
     <!-- Settings Section -->
-    <main class="flex-grow flex flex-col items-center py-6">
+    <main class="flex-grow mt-3 mb-12 flex flex-col items-center py-6">
         <div class="bg-white w-11/12 max-w-lg rounded-2xl shadow-lg p-6">
             <h2 class="text-xl font-bold mb-4">Profile Settings</h2>
             <div class="mb-4">
@@ -46,9 +46,13 @@
                 </select>
             </div>
 
-            <button class="bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-full mt-4 hover:bg-blue-700 transition duration-200 shadow-md">
-                Save Changes
-            </button>
+                <!-- Save Changes Button -->
+    <div class="flex justify-center">
+        <button class="bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-full mt-4 hover:bg-blue-700 transition duration-200 shadow-md">
+          Save Changes
+        </button>
+    </div>
+
 
             <button class="mt-4 w-full text-center text-red-600 font-semibold hover:underline">
                 <i class="fas fa-sign-out-alt mr-2"></i> Log Out

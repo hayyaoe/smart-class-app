@@ -15,7 +15,7 @@
     </header>
 
     <!-- Transcript Section -->
-    <main class="flex-grow flex justify-center items-center">
+    <main class="flex-grow flex justify-center items-center mb-20">
         <!-- Transcript Box -->
         <div class="bg-white w-11/12 max-w-md rounded-2xl shadow-lg p-6 flex flex-col items-center">
             <button class="bg-white text-blue-600 font-semibold text-lg px-6 py-3 rounded-full shadow-md mb-4">
