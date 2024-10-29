@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +12,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true
+        });
+    </script>
     <style>
-        body{
+        body {
             font-family: "Montserrat", sans-serif;
             font-optical-sizing: auto;
             font-weight: <weight>;
             font-style: normal;
         }
 
-        .blue-bg{
+        .blue-bg {
             background-color: #1152FD;
         }
-        
     </style>
 </head>
+
 <body class="bg-gray-100 flex flex-col min-h-screen justify-between">
 
     <!-- Header -->
@@ -33,7 +42,7 @@
         <div class="blue-bg pt-12 pb-12 shadow-md rounded-b-3xl fixed top-0 left-0 w-full z-10"> <!-- Changed 'relative' to 'fixed' -->
             <h1 class="text-4xl font-extrabold tracking-wide">smartclass</h1>
         </div>
-        
+
         <!-- Transcript Button -->
         <div class="fixed top-20 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-80 z-50">
             <div class="bg-white text-blue-600 font-semibold text-lg px-6 py-3 rounded-full shadow-lg w-full">
@@ -53,24 +62,36 @@
                 Mind Map
             </a>
         </div>
-        
-        <div class="bg-white max-w-md flex flex-col items-center rounded-2xl shadow-lg">
-            <div id="summary-content" class="overflow-y-auto h-full w-full p-8">
-                <p class="text-2xl mb-2 font-semibold">Pythagorean Theorem</p>
-                <p class="text-black text-justify mb-4">
-                    - Setiap pertanyaan yang kalian ajukan dapat membantu kalian untuk lebih pintar <br>
-                    - Setiap kesalahan yang kalian buat yang sedang kalian bentuk. <br>
-                    - Belajar bukan hanya tentang mendapatkan jawaban yang benar. <br>
-                    - Ini tentang perjalanan memahami, mengeksplorasi, dan tumbuh. <br>
-                    - Rafi dan kawan-kawan adalah teman-nya Kevin Christian dan kawan-kawan. <br>
-                    - Setiap kesalahan yang kalian buat yang sedang kalian bentuk. <br>
-                    - Belajar bukan hanya tentang mendapatkan jawaban yang benar. <br>
-                    - Ini tentang perjalanan memahami, mengeksplorasi, dan tumbuh. <br>
-                </p>
-            </div>
 
-            <div id="mindmap-content" class="h-full w-full flex justify-center items-center hidden"> <!-- Center the image -->
-                <img src="/images/MindMapPlaceholder.jpg" class="h-96 w-auto object-cover rounded-2xl">
+        <div class="bg-white max-w-md flex flex-col items-center rounded-2xl shadow-lg">
+            <div id="markdown-render" class="text-black text-justify"></div>
+            <div id="mindmap-content" class="h-full w-full flex justify-center items-center"> <!-- Center the image -->
+                <pre class="mermaid">
+mindmap
+  root: Dasar-dasar Ekonomi
+    Ilmu tentang cara mengatur sumber daya terbatas
+    Memenuhi kebutuhan tak terbatas
+    Konsep Kelangkaan
+      Keterbatasan sumber daya
+      Memerlukan pembuatan pilihan
+      Dampaknya biaya peluang
+    Konsep Penawaran dan Permintaan
+      Harga didasarkan pada interaksi
+        Antara penawaran dan permintaan
+        Di pasar bebas
+    Insentif
+      Berperan dalam memengaruhi keputusan
+        Individu atau perusahaan
+    Efisiensi
+      Pengalokasian sumber daya secara optimal
+    Ekuitas
+      Distribusi sumber daya secara adil
+        Dalam kebijakan ekonomi
+    Membantu dalam pengambilan keputusan
+      Di tingkat pemerintah
+      Dan perusahaan
+
+                    </pre>
             </div>
 
             <!-- Save as PDF Button -->
@@ -107,52 +128,39 @@
             const saveBtn = document.getElementById("save-btn");
             const summaryContent = document.getElementById("summary-content");
             const mindmapContent = document.getElementById("mindmap-content");
+            const markdownRender = document.getElementById("markdown-render");
 
+            // Sample Markdown text to render
+            const markdownText = `
+# Pythagorean Theorem
+- Setiap pertanyaan yang kalian ajukan dapat membantu kalian untuk lebih pintar
+- Setiap kesalahan yang kalian buat sedang membentuk kalian
+- Belajar bukan hanya tentang mendapatkan jawaban yang benar, tetapi tentang perjalanan memahami.
+            `;
+
+            // Render Markdown to HTML
+            markdownRender.innerHTML = marked.parse(markdownText);
+
+            // Button Actions for toggling content
             summaryBtn.addEventListener("click", function() {
-                if (summaryBtn.classList.contains("blue-bg")) {
-                    summaryBtn.classList.remove("blue-bg", "text-white");
-                    summaryBtn.classList.add("bg-white", "text-blue-600");
-                    mindMapBtn.classList.remove("bg-white", "text-blue-600");
-                    mindMapBtn.classList.add("blue-bg", "text-white");
-                    saveBtn.textContent = "Save as image";
-                    saveBtn.href = "";
-                    summaryContent.classList.add("hidden");
-                    mindmapContent.classList.remove("hidden");
-                } else {
-                    summaryBtn.classList.remove("bg-white", "text-blue-600");
-                    summaryBtn.classList.add("blue-bg", "text-white");
-                    mindMapBtn.classList.remove("blue-bg", "text-white");
-                    mindMapBtn.classList.add("bg-white", "text-blue-600");
-                    saveBtn.textContent = "Save as PDF";
-                    saveBtn.href = "";
-                    summaryContent.classList.remove("hidden");
-                    mindmapContent.classList.add("hidden");
-                }
+                summaryContent.classList.remove("hidden-content");
+                mindmapContent.classList.add("hidden-content");
+                saveBtn.textContent = "Save as PDF";
+                summaryBtn.classList.add("blue-bg", "text-white");
+                mindMapBtn.classList.remove("blue-bg", "text-white");
+                mindMapBtn.classList.add("bg-white", "text-blue-600");
             });
 
             mindMapBtn.addEventListener("click", function() {
-                if (mindMapBtn.classList.contains("blue-bg")) {
-                    mindMapBtn.classList.remove("blue-bg", "text-white");
-                    mindMapBtn.classList.add("bg-white", "text-blue-600");
-                    summaryBtn.classList.remove("bg-white", "text-blue-600");
-                    summaryBtn.classList.add("blue-bg", "text-white");
-                    saveBtn.textContent = "Save as PDF";
-                    saveBtn.href = "";
-                    summaryContent.classList.remove("hidden");
-                    mindmapContent.classList.add("hidden");
-                } else {
-                    mindMapBtn.classList.remove("bg-white", "text-blue-600");
-                    mindMapBtn.classList.add("blue-bg", "text-white");
-                    summaryBtn.classList.remove("blue-bg", "text-white");
-                    summaryBtn.classList.add("bg-white", "text-blue-600");
-                    saveBtn.textContent = "Save as image";
-                    saveBtn.href = "";
-                    summaryContent.classList.add("hidden");
-                    mindmapContent.classList.remove("hidden");
-                }
+                summaryContent.classList.add("hidden-content");
+                mindmapContent.classList.remove("hidden-content");
+                saveBtn.textContent = "Save as Image";
+                mindMapBtn.classList.add("blue-bg", "text-white");
+                summaryBtn.classList.remove("blue-bg", "text-white");
+                summaryBtn.classList.add("bg-white", "text-blue-600");
             });
         });
     </script>
 
 </body>
-</html>
+

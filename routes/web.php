@@ -1,9 +1,29 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+
+
+use App\Http\Livewire\TranscriptSummarizer;
+
+Route::get('/transcript-summarizer', function () {
+    return view('livewire.transcript-summarizer');
+})->name('transcript.summarizer');
 
 Route::get('/', function () {
     return view('home_view');
+});
+
+Route::get('/sum', function () {
+    return view('summarize');
+});
+
+Route::get('/res', function () {
+    return view('result');
+});
+
+Route::get('/mindmap', function () {
+    return view('mindmap');
 });
 
 Route::get('/transcript_view', function () {
@@ -20,5 +40,13 @@ Route::get('/summary_view', function(){
 
 Route::get('/setting_view', function () {
     return view('setting_view');
+});
+
+Route::get('/mindmap', function () {
+    return view('mindmap');
+});
+
+Route::get('/upload', function () {
+    return view('upload');
 });
 
