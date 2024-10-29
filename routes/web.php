@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AudioController;
 
 
 use App\Http\Livewire\TranscriptSummarizer;
@@ -42,11 +43,10 @@ Route::get('/setting_view', function () {
     return view('setting_view');
 });
 
+
+Route::post('/upload-audio', [AudioController::class, 'uploadAudio']);
+
 Route::get('/mindmap', function () {
     return view('mindmap');
-});
-
-Route::get('/upload', function () {
-    return view('upload');
 });
 
